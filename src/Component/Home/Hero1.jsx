@@ -17,7 +17,7 @@ function Hordhac() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          📘 Dugsiga Luqmaan Alxakiim
+          📘 Dugsiga Luqmaan Al-xakiim
         </motion.h1>
 
         <motion.h2
@@ -35,7 +35,7 @@ function Hordhac() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1 }}
         >
-          Dugsiga <span className="font-bold text-blue-800">Luqmaan Alxakiim </span> 
+          Dugsiga <span className="font-bold text-blue-800">Luqmaan Al-xakiim </span> 
           waa xarun waxbarasho oo ku taalla magaalada Muqdisho, taas oo isku daraysa 
           waxbarashada casriga ah iyo dhaqanka wanaagsan. Dugsigu waxa uu si joogto 
           ah uga shaqeeyaa kobcinta aqoonta, akhlaaqda, iyo mustaqbalka ardayda Soomaaliyeed.

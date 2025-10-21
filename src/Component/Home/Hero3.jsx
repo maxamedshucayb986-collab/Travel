@@ -1,91 +1,58 @@
+// Section2.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import { FaChalkboardTeacher, FaBookOpen, FaUsers, FaSchool } from "react-icons/fa";
 
-// SchoolServices.react.jsx
-// Component to display school services with hover + animation effects
-
-export default function SchoolServices() {
-  const services = [
-    {
-      id: "edu",
-      title: "Waxbarasho tayo leh",
-      desc: "Isku dhafka aqoonta casriga iyo dhaqanka wanaagsan.",
-      emoji: "📘",
-      accent: "bg-blue-50",
-    },
-    {
-      id: "bus",
-      title: "Adeeg Gaadiid",
-      desc: "Ardayda waxaa laga soo qaadaa gurigooda waxaana lagu geeyaa dugsiga kadibna dib loogu celiyaa.",
-      emoji: "🚌",
-      accent: "bg-yellow-50",
-    },
-    {
-      id: "food",
-      title: "Adeeg Qado",
-      desc: "Ardayda waxaa loo diyaariyaa qado nadiif ah oo caafimaad leh ✅",
-      emoji: "🍲",
-      accent: "bg-green-50",
-    },
-  ];
-
-  const container = {
-    hidden: {},
-    show: { transition: { staggerChildren: 0.08 } },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 260, damping: 20 } },
-  };
-
+export default function Section2() {
   return (
-    <section className="max-w-4xl mx-auto p-6">
-      <header className="mb-6 text-center">
-        <h2 className="text-2xl font-bold">⬇ Adeegyada Dugsiga</h2>
-        <p className="text-slate-500 mt-1">
-          Dugsigu waxa uu bixiyaa adeegyo dhowr ah oo lagu taageerayo waxbarashada iyo nolosha ardayda:
-        </p>
-      </header>
+    <section className="bg-gray-50 py-16 px-6">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+        {/* Sawirka Dugsiga */}
+        <motion.img
+          src="https://scontent.fmgq1-2.fna.fbcdn.net/v/t39.30808-6/487324465_1246388560617307_299250803992270810_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=UViTkhtlldoQ7kNvwGn28MJ&_nc_oc=AdmwN3soiYBzx5p9R7bwrdwO21P0olcZwA8-EzCd4wsbgoi-yXHr7-V3wYrpVUX2nx8&_nc_zt=23&_nc_ht=scontent.fmgq1-2.fna&_nc_gid=iHPi-8yUIBYbuH2YHuE-VA&oh=00_AfcC_NYm2WHKYvk7U4uCY9dsXoTmj94nTnmw09xVBwvlyw&oe=68F9770D"
+          alt="School Building"
+          className="rounded-2xl shadow-lg"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+        />
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-      >
-        {services.map((srv) => (
-          <motion.div
-            key={srv.id}
-            variants={cardVariants}
-            whileHover={{ scale: 1.05, rotate: [0, 1.5, -1.5, 0] }}
-            whileTap={{ scale: 0.97 }}
-            className={`relative p-5 rounded-2xl shadow-md border border-slate-100 ${srv.accent} cursor-pointer transition-shadow duration-300 hover:shadow-xl`}
-          >
-            <div className="w-14 h-14 flex items-center justify-center text-3xl bg-white/70 rounded-xl shadow-inner">
-              {srv.emoji}
+        {/* Qoraalka ku saabsan */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <h2 className="text-3xl font-bold text-blue-900 mb-4 font-serif italic">
+            About Luqmaan Al Xakiim
+          </h2>
+          <p className="text-gray-600 mb-6 leading-relaxed">
+            Luqmaan Al Xakiim School waa dugsi casri ah oo bixiya waxbarasho tayo sare leh, 
+            isku dhafaya aqoonta diinta iyo tan casriga ah. Waxaan diiradda saarnaa 
+            barbaarinta arday leh akhlaaq, aqoon iyo xirfado nolosha.
+          </p>
+
+          {/* Why Choose Us */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="flex items-center gap-3">
+              <FaChalkboardTeacher className="text-blue-600 text-2xl" />
+              <span>Macallimiin Khibrad leh</span>
             </div>
-            <h3 className="mt-4 font-semibold text-lg">{srv.title}</h3>
-            <p className="mt-2 text-sm text-slate-600">{srv.desc}</p>
-
-            {/* Accent circle animation */}
-            <motion.span
-              className="absolute -top-6 -right-6 w-20 h-20 rounded-full opacity-20 blur-2xl"
-              style={{
-                background:
-                  srv.id === "edu"
-                    ? "linear-gradient(135deg,#bfdbfe,#e0f2fe)"
-                    : srv.id === "bus"
-                    ? "linear-gradient(135deg,#fef08a,#fde68a)"
-                    : "linear-gradient(135deg,#bbf7d0,#dcfce7)",
-              }}
-              aria-hidden
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
+            <div className="flex items-center gap-3">
+              <FaBookOpen className="text-blue-600 text-2xl" />
+              <span>Manhaj tayo leh</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <FaUsers className="text-blue-600 text-2xl" />
+              <span>Xanaaneyn & Tarbiyo</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <FaSchool className="text-blue-600 text-2xl" />
+              <span>Goob waxbarasho casri ah</span>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }

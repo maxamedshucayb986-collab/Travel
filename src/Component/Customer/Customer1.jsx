@@ -1,180 +1,160 @@
 import React, { useState } from "react";
-import { FaStar } from "react-icons/fa";
-import { motion } from "framer-motion";
 
-export default function CustomerReviews() {
-  const allReviews = [
-    {
-      id: 1,
-      name: "Ali Mohamed",
-      rating: 5,
-      comment: "Socdaal cajiib ah! Runtii aad ayaan ugu riyaaqay waayo-aragnimada, si weyn ayaa loogu taliyay!",
-      photo: "https://i.pinimg.com/736x/b9/84/71/b984714c32ed762bf15296f9147d77d7.jpg",
-    },
-    {
-      id: 2,
-      name: "Amina Yusuf",
-      rating: 4,
-      comment: "Safar aad u fiican, hagaha wuxuu ahaa xirfadle. Dib u qabsan doona!",
-      photo: "https://i.pinimg.com/736x/b3/9d/e0/b39de0b8bb76e7e98415249adb91e4cc.jpg",
-    },
-    {
-      id: 3,
-      name: "Mohamed Abdi",
-      rating: 5,
-      comment: "Waayo-aragnimada ugu fiicnayd noloshayda, xusuus aan la ilaawi karin!",
-      photo: "https://i.pinimg.com/736x/b9/84/71/b984714c32ed762bf15296f9147d77d7.jpg",
-    },
-    {
-      id: 4,
-      name: "Hodan Ahmed",
-      rating: 4,
-      comment: "Runtii adeeg wanaagsan, kaliya daahitaan yar laakiin guud ahaan aad u fiican.",
-      photo: "https://i.pinimg.com/736x/de/3e/10/de3e10d5fdd8166d74634ac0fd804af2.jpg",
-    },
-    {
-      id: 5,
-      name: "Khalid Warsame",
-      rating: 5,
-      comment: "Aad loogu talinayo! Wax walba waxay ahaayeen kuwo siman oo si wanaagsan loo habeeyey.",
-      photo: "https://i.pinimg.com/736x/7b/1b/12/7b1b122e34f6b667651d2eb7f544f0eb.jpg",
-    },
-    {
-      id: 6,
-      name: "Ifrah Ali",
-      rating: 5,
-      comment: "Shaqaale cajiib ah iyo hagaha dalxiiska, xaqiiqdii waan soo laaban doonaa!",
-      photo: "https://i.pinimg.com/1200x/1b/4d/20/1b4d2067ecc642859a6ba67dc8d73ddd.jpg",
-    },
-    {
-      id: 7,
-      name: "Nasteexo Abukar",
-      rating: 4,
-      comment: "Safar qurxoon, ammaan badan oo xiiso leh.",
-      photo: "https://i.pinimg.com/1200x/27/c9/5c/27c95c4c4410062aa12fe97e5452b46f.jpg",
-    },
-    {
-      id: 8,
-      name: "Omar Hussein",
-      rating: 5,
-      comment: "Mid ka mid ah tacaburradii ugu fiicnaa ee aan soo maray, wax walbaa waxay ahaayeen kuwo qumman.",
-      photo: "https://i.pinimg.com/736x/1d/49/dc/1d49dce2dede51a7a3951e2c00a96361.jpg",
-    },
-    {
-      id: 9,
-      name: "Sagal Ibrahim",
-      rating: 5,
-      comment: "Gaar ah! Waxaan jeclaystay soo dhawaynta iyo hufnaanta.",
-      photo: "https://i.pinimg.com/1200x/92/47/5f/92475ff163cb2b8b5ab023ebbd2bdea4.jpg",
-    },
-    {
-      id: 10,
-      name: "Mahad Farah",
-      rating: 4,
-      comment: "Adeeg wanaagsan guud ahaan, xoogaa camiran.",
-      photo: "https://i.pinimg.com/736x/8f/a8/91/8fa8911784a91a92c271583b850df56a.jpg",
-    },
-    {
-      id: 11,
-      name: "Zahra Mohamed",
-      rating: 5,
-      comment: "Ku qumman si kasta, hubaal mar kale ayaan ballan qabsan doonaa!",
-      photo: "https://i.pinimg.com/736x/cc/ab/83/ccab83352c0f4f83eb199f28525e93bd.jpg",
-    },
-    {
-      id: 12,
-      name: "Abdirahman Ali",
-      rating: 5,
-      comment: "Khibrad heer sare ah, oo u qalma dinaar kasta!",
-      photo: "https://i.pinimg.com/736x/34/5b/d4/345bd49a51c06d374dc173aa88259720.jpg",
-    },
-  ];
+const AdmissionsForm = () => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    age: "",
+    parentName: "",
+    contact: "",
+    classLevel: "",
+  });
 
-  // Pagination states
-  const [currentPage, setCurrentPage] = useState(1);
-  const reviewsPerPage = 6;
+  const [submitted, setSubmitted] = useState(false);
 
-  const indexOfLastReview = currentPage * reviewsPerPage;
-  const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
-  const currentReviews = allReviews.slice(indexOfFirstReview, indexOfLastReview);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-  const totalPages = Math.ceil(allReviews.length / reviewsPerPage);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form Data Submitted:", formData);
+    setSubmitted(true);
+    setFormData({
+      fullName: "",
+      age: "",
+      parentName: "",
+      contact: "",
+      classLevel: "",
+    });
+
+    // Hide success message after 3 seconds
+    setTimeout(() => setSubmitted(false), 3000);
+  };
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-12">
-      <motion.h1
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, type: "spring" }}
-        className="text-3xl font-bold mb-10 text-center text-blue-500"
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center py-20">
+      <h1 className="text-4xl font-bold text-blue-500 mb-10 text-blue-0 animate-fadeIn">
+        Admissions Form
+      </h1>
+
+      {submitted && (
+        <div className="mb-6 p-4 bg-green-100 text-green-800 rounded-lg shadow-lg animate-slideUp">
+          Form successfully submitted!
+        </div>
+      )}
+
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-lg bg-white p-8 rounded-2xl shadow-lg transform transition duration-500 hover:scale-105 animate-slideUp"
       >
-        Customer Reviews
-      </motion.h1>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-semibold mb-2">
+            Full Name
+          </label>
+          <input
+            type="text"
+            name="fullName"
+            value={formData.fullName}
+            onChange={handleChange}
+            required
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300"
+          />
+        </div>
 
-      {/* Reviews Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        {currentReviews.map((rev, index) => (
-          <motion.div
-            key={rev.id}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              duration: 0.6,
-              delay: index * 0.1,
-              type: "spring",
-            }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white hover:bg-blue-500 hover:text-white transition-colors duration-300 p-6 rounded-xl shadow-lg cursor-pointer"
+        <div className="mb-4">
+          <label className="block text-gray-700 font-semibold mb-2">
+            Age
+          </label>
+          <input
+            type="number"
+            name="age"
+            value={formData.age}
+            onChange={handleChange}
+            required
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 font-semibold mb-2">
+            Parent / Guardian Name
+          </label>
+          <input
+            type="text"
+            name="parentName"
+            value={formData.parentName}
+            onChange={handleChange}
+            required
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 font-semibold mb-2">
+            Contact Number
+          </label>
+          <input
+            type="tel"
+            name="contact"
+            value={formData.contact}
+            onChange={handleChange}
+            required
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300"
+          />
+        </div>
+
+        <div className="mb-6">
+          <label className="block text-gray-700 font-semibold mb-2">
+            Class Level
+          </label>
+          <select
+            name="classLevel"
+            value={formData.classLevel}
+            onChange={handleChange}
+            required
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-300"
           >
-            <div className="flex items-center mb-3">
-              <img
-                src={rev.photo}
-                alt={rev.name}
-                className="w-12 h-12 rounded-full object-cover border-2 border-blue-500"
-              />
-              <div className="ml-4">
-                <h3 className="font-semibold">{rev.name}</h3>
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <FaStar
-                      key={i}
-                      className={`h-5 w-5 ${
-                        i < rev.rating ? "text-yellow-400" : "text-gray-300"
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-            <p>{rev.comment}</p>
-          </motion.div>
-        ))}
-      </div>
+            <option value="">Select Class</option>
+            <option value="KG1">الفصل الاول</option>
+            <option value="KG2">الفصل الثاني</option>
+            <option value="Grade 1">الفصل الثالث</option>
+            <option value="Grade 2">الفصل الرابع</option>
+            <option value="Grade 3">الفصل الخامس</option>
+            <option value="Grade 4">الفصل السادس</option>
+            <option value="Grade 5">الفصل السابع</option>
+          </select>
+        </div>
 
-      {/* Pagination Controls */}
-      <div className="flex justify-center space-x-4">
         <button
-          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-          disabled={currentPage === 1}
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg disabled:opacity-50 hover:bg-blue-600"
+          type="submit"
+          className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition duration-300 transform hover:scale-105"
         >
-          Prev
+          Submit
         </button>
+      </form>
 
-        <span className="px-4 py-2 font-semibold">
-          Page {currentPage} of {totalPages}
-        </span>
-
-        <button
-          onClick={() =>
-            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+      {/* Tailwind Custom Animations */}
+      <style>
+        {`
+          @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
           }
-          disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg disabled:opacity-50 hover:bg-blue-600"
-        >
-          Next
-        </button>
-      </div>
-    </section>
+          .animate-fadeIn {
+            animation: fadeIn 1s ease-out forwards;
+          }
+
+          @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+          }
+          .animate-slideUp {
+            animation: slideUp 0.8s ease-out forwards;
+          }
+        `}
+      </style>
+    </div>
   );
-}
+};
+
+export default AdmissionsForm;

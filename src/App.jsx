@@ -14,13 +14,12 @@ function App() {
       <div className="p-6">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Packagesl" element={<About/>} />
-          <Route path="/Booking" element={<Booking />} />
-          <Route path="/Customer" element={<Customer />} />
-          {/* <Route path="/Admin" element={<Admin />} /> */}
+          <Route path="/about" element={<About />} />
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/customer" element={<Customer />} />
+          {/* <Route path="/admin" element={<Admin />} /> */}
         </Routes>
       </div>
-
     </div>
   );
 }

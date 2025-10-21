@@ -1,91 +1,106 @@
+// About.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import { FaSchool, FaBookOpen, FaUsers } from "react-icons/fa";
 
-// SchoolServices.react.jsx
-// Component to display school services with hover + animation effects
-
-export default function SchoolServices() {
-  const services = [
-    {
-      id: "edu",
-      title: "Waxbarasho tayo leh",
-      desc: "Isku dhafka aqoonta casriga iyo dhaqanka wanaagsan.",
-      emoji: "📘",
-      accent: "bg-blue-50",
-    },
-    {
-      id: "bus",
-      title: "Adeeg Gaadiid",
-      desc: "Ardayda waxaa laga soo qaadaa gurigooda waxaana lagu geeyaa dugsiga kadibna dib loogu celiyaa.",
-      emoji: "🚌",
-      accent: "bg-yellow-50",
-    },
-    {
-      id: "food",
-      title: "Adeeg Qado",
-      desc: "Ardayda waxaa loo diyaariyaa qado nadiif ah oo caafimaad leh ✅",
-      emoji: "🍲",
-      accent: "bg-green-50",
-    },
-  ];
-
-  const container = {
-    hidden: {},
-    show: { transition: { staggerChildren: 0.08 } },
-  };
-
+function About() {
+  // Animation variants
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 260, damping: 20 } },
+    hidden: { opacity: 0, y: 40 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.3, duration: 0.8, ease: "easeOut" },
+    }),
+    hover: { scale: 1.08, rotate: 1 },
   };
 
   return (
-    <section className="max-w-4xl mx-auto p-6">
-      <header className="mb-6 text-center">
-        <h2 className="text-2xl font-bold">⬇ Adeegyada Dugsiga</h2>
-        <p className="text-slate-500 mt-1">
-          Dugsigu waxa uu bixiyaa adeegyo dhowr ah oo lagu taageerayo waxbarashada iyo nolosha ardayda:
-        </p>
-      </header>
+    <section className="bg-gradient-to-r from-blue-50 to-white py-16 px-6 min-h-screen overflow-hidden">
+      <div className="max-w-5xl mx-auto">
+        {/* Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: -50, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="text-3xl md:text-4xl font-bold text-blue-900 text-center mb-8"
+        >
+          ℹ Ku Saabsan Dugsiga Luqmaan Alxakiim
+        </motion.h1>
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-      >
-        {services.map((srv) => (
-          <motion.div
-            key={srv.id}
-            variants={cardVariants}
-            whileHover={{ scale: 1.05, rotate: [0, 1.5, -1.5, 0] }}
-            whileTap={{ scale: 0.97 }}
-            className={`relative p-5 rounded-2xl shadow-md border border-slate-100 ${srv.accent} cursor-pointer transition-shadow duration-300 hover:shadow-xl`}
+        {/* Introduction */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 1 }}
+          viewport={{ once: true }}
+          className="text-gray-700 text-lg leading-relaxed text-center mb-12"
+        >
+          Dugsiga <span className="text-blue-700 font-semibold">Luqmaan Al-xakiim </span> 
+          waa xarun waxbarasho tayo sare leh oo ka go’an kobcinta aqoonta iyo akhlaaqda ardayda. 
+          Waxay isku daraa barashada culuumta maadiga ah iyo barashada Qur’aanka Kariimka, 
+          si ay u soo saarto jiil leh aqoon iyo anshax wanaag.
+        </motion.p>
+
+        {/* Feature Cards */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {[ 
+            {
+              icon: <FaSchool className="text-3xl text-blue-600 mb-3" />,
+              title: "Taariikh",
+              desc: "Waxaa la aasaasay si loogu adeego bulshada, iyadoo xoogga la saarayo waxbarashada tayada leh."
+            },
+            {
+              icon: <FaBookOpen className="text-3xl text-green-600 mb-3" />,
+              title: "Hadaf",
+              desc: "Inuu noqdo xarun waxbarasho hormuud ah oo soo saarta jiil aqoon iyo akhlaaq isku dara."
+            },
+            {
+              icon: <FaUsers className="text-3xl text-purple-600 mb-3" />,
+              title: "Himilada",
+              desc: "Bixinta waxbarasho tayo sare leh, barashada Qur’aanka Kariimka, iyo la shaqeynta waalidiinta si loo dhiso mustaqbal ifaya."
+            },
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              whileHover="hover"
+              viewport={{ once: true }}
+              className="bg-white p-6 rounded-xl shadow-md border hover:bg-blue-600 hover:text-white transition-all duration-500 cursor-pointer"
+            >
+              {item.icon}
+              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+              <p className="text-sm leading-relaxed">{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom Glow Animation */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, delay: 0.5 }}
+          viewport={{ once: true }}
+          className="mt-16 bg-blue-100 text-blue-800 rounded-2xl shadow-lg p-6 text-center"
+        >
+          <motion.h2
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="text-xl font-semibold mb-2"
           >
-            <div className="w-14 h-14 flex items-center justify-center text-3xl bg-white/70 rounded-xl shadow-inner">
-              {srv.emoji}
-            </div>
-            <h3 className="mt-4 font-semibold text-lg">{srv.title}</h3>
-            <p className="mt-2 text-sm text-slate-600">{srv.desc}</p>
-
-            {/* Accent circle animation */}
-            <motion.span
-              className="absolute -top-6 -right-6 w-20 h-20 rounded-full opacity-20 blur-2xl"
-              style={{
-                background:
-                  srv.id === "edu"
-                    ? "linear-gradient(135deg,#bfdbfe,#e0f2fe)"
-                    : srv.id === "bus"
-                    ? "linear-gradient(135deg,#fef08a,#fde68a)"
-                    : "linear-gradient(135deg,#bbf7d0,#dcfce7)",
-              }}
-              aria-hidden
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            />
-          </motion.div>
-        ))}
-      </motion.div>
+            “Waxbarasho waa furaha guusha mustaqbalka!”
+          </motion.h2>
+          <p className="text-sm text-gray-600">
+            Waxaan ku dadaaleynaa in arday walba uu gaaro himiladiisa aqooneed iyo anshaxeed.
+          </p>
+        </motion.div>
+      </div>
     </section>
   );
 }
+
+export default About;
