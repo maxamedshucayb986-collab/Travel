@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 function Hordhac() {
   return (
-    <div className="bg-gradient-to-r from-blue-900 to-blue-500 min-h-screen flex items-center justify-center px-6">
+    <div className="bg-gradient-to-r from-blue-900 to-blue-500 min-h-screen flex items-center justify-center px-6 mt-20">
       <motion.div
         className="bg-white text-gray-800 shadow-2xl rounded-2xl p-8 max-w-2xl text-center"
         initial={{ opacity: 0, y: 60, scale: 0.9 }}

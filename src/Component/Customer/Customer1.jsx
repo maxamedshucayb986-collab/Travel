@@ -32,7 +32,7 @@ const AdmissionsForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center py-20">
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center py-20 mt-20">
       <h1 className="text-4xl font-bold text-blue-500 mb-10 text-blue-0 animate-fadeIn">
         Admissions Form
       </h1>

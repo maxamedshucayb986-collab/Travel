@@ -1,33 +1,53 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FaUserCog } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const links = [
+    { name: "Home", to: "/" },
+    { name: "About", to: "/about" },
+    { name: "Admission", to: "/customer" },
+    { name: "Contact", to: "/booking" },
+  ];
 
   return (
-    <header className="relative bg-gradient-to-r from-blue-500 to-blue-900 text-white z-50 shadow-lg">
+    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-blue-900 shadow-xl" : "bg-gradient-to-r from-blue-500 to-blue-900 shadow-lg"}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5 h-20">
         {/* Logo */}
-        <h1 className="font-serif italic text-2xl md:text-3xl transition transform hover:scale-110 hover:text-yellow-300 animate-fadeIn">
+        <h1 className="font-serif italic text-2xl md:text-3xl transition transform hover:scale-110 text-white hover:text-yellow-300 animate-fadeIn">
           Luqmaan Al Xakiim
         </h1>
 
         {/* Desktop links */}
         <nav className="hidden md:flex gap-10 items-center font-semibold">
-          <Link className="hover:text-yellow-300 transition transform hover:scale-110 animate-slideIn" to="/">Home</Link>
-          <Link className="hover:text-yellow-300 transition transform hover:scale-110 animate-slideIn" to="/about">About</Link>
-          <Link className="hover:text-yellow-300 transition transform hover:scale-110 animate-slideIn" to="/customer">Admission</Link>
-          <Link className="hover:text-yellow-300 transition transform hover:scale-110 animate-slideIn" to="/booking">Contact</Link>
-          {/* Admin icon */}
-          {/* <Link className="hover:text-yellow-300 transition transform hover:scale-110" to="/admin">
-            <FaUserCog className="h-5 w-5"/>
-          </Link> */}
+          {links.map(link => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`relative hover:text-yellow-300 transition transform text-white hover:scale-110 animate-slideIn ${
+                location.pathname === link.to ? "text-yellow-300" : ""
+              }`}
+            >
+              {link.name}
+              <span className={`absolute left-0 -bottom-1 w-full h-[2px] bg-yellow-300 transition-all duration-300 ${location.pathname === link.to ? "scale-x-100" : "scale-x-0"} transform origin-left hover:scale-x-100`}></span>
+            </Link>
+          ))}
         </nav>
 
         {/* Hamburger (mobile) */}
         <button
-          className="md:hidden p-2 focus:outline-none"
+          className="md:hidden p-2 focus:outline-none text-white"
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-label="Toggle menu"
@@ -42,7 +62,7 @@ function Header() {
       {/* Mobile menu */}
       <div
         className={
-          "md:hidden absolute left-0 w-full h-55 bg-gradient-to-b from-blue-900 to-blue-500 text-white z-40 transform transition-all duration-500 ease-in-out " +
+          "md:hidden absolute left-0 w-full bg-gradient-to-b from-blue-900 to-blue-500 text-white z-40 transform transition-all duration-500 ease-in-out " +
           (isOpen
             ? "translate-y-0 opacity-100 pointer-events-auto"
             : "-translate-y-full opacity-0 pointer-events-none")
@@ -50,17 +70,14 @@ function Header() {
         style={{ top: "80px" }}
       >
         <ul className="flex flex-col items-center gap-6 py-6 font-semibold">
-          <li onClick={() => setIsOpen(false)}><Link to="/">Home</Link></li>
-          <li onClick={() => setIsOpen(false)}><Link to="/about">About</Link></li>
-          <li onClick={() => setIsOpen(false)}><Link to="/customer">Admission</Link></li>
-          <li onClick={() => setIsOpen(false)}><Link to="/booking">Contact</Link></li>
-          <li onClick={() => setIsOpen(false)}>
-            {/* <Link to="/admin"><FaUserCog className="h-5 w-5"/></Link> */}
-          </li>
+          {links.map(link => (
+            <li key={link.to} onClick={() => setIsOpen(false)}>
+              <Link to={link.to}>{link.name}</Link>
+            </li>
+          ))}
         </ul>
       </div>
 
-      {/* Tailwind custom animations */}
       <style>
         {`
           @keyframes fadeIn {

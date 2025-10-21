@@ -16,7 +16,7 @@ function About() {
   };
 
   return (
-    <section className="bg-gradient-to-r from-blue-50 to-white py-16 px-6 min-h-screen overflow-hidden">
+    <section className="bg-gradient-to-r from-blue-50 to-white py-16 px-6 min-h-screen overflow-hidden mt-20">
       <div className="max-w-5xl mx-auto">
         {/* Title */}
         <motion.h1

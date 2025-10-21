@@ -22,7 +22,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="max-w-2xl mx-auto px-6 py-12">
+    <section className="max-w-2xl mx-auto px-6 py-12 mt-20">
       <motion.h1
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
