@@ -12,21 +12,21 @@ export default function Section5() {
       date: "15 Oct 2025",
       desc: "Ardayda dugsiga waxaa loo geli doonaa imtixaanka semester-ka 1aad.",
       full: "Imtixaanka waxaa la bilaabi doonaa 15-ka Oktoobar 2025 waxaana lagu geli doonaa dhammaan fasallada dugsiga hoose iyo sare. Ujeedadu waa in lagu qiimeeyo horumarka ardayda ee rubucii hore ee sanadka, iyadoo natiijooyinka lagu soo bandhigi doono si hufan.",
-      img: "https://scontent.fmgq1-2.fna.fbcdn.net/v/t39.30808-6/485792042_1241617437761086_4428897816750442221_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=N2c8q-Du3BoQ7kNvwGmh2Yb&_nc_oc=Adl1wldqMda83Qv0SQ5jkB2IWgd6cVZ_OA8ZyUymyPfYLlmRwWekJtNpL8FQiv8ZmSI&_nc_zt=23&_nc_ht=scontent.fmgq1-2.fna&_nc_gid=MoXJQduBj_neG7ve0k9nsw&oh=00_AfdDhB8tTLJfdqUb6d14GegTjApWlC4gup5nPFF9umVEAQ&oe=68F97F47",
+      img: "https://scontent.fmgq1-2.fna.fbcdn.net/v/t39.30808-6/485792042_1241617437761086_4428897816750442221_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=P0N1hXjdwB8Q7kNvwEjS7sL&_nc_oc=AdlsuO2jVsUafNcXZVySXGYOvIMIyzEBy2e87XTP_rVmxm6_Q-vzKxNvblMFETul4cM&_nc_zt=23&_nc_ht=scontent.fmgq1-2.fna&_nc_gid=jJ5Fdh6bRMeulHZWzJ35Sg&oh=00_AffUgivXArQdNTzmy3heiL4U6frllZN9zN-9bfa4NaBgIA&oe=6902B9C7",
     },
     {
       title: "Xaflada Quraan Dhameystir",
       date: "25 Nov 2025",
       desc: "Ardayda dhammeeyay xifdinta Qur’aanka waxaa loo qaban doonaa xaflad weyn.",
       full: "Xafladdan waxaa lagu qaban doonaa hoolka weyn ee dugsiga, waxaana lagu casuumi doonaa waalidiinta, maamulka iyo bulshada deegaanka. Ardayda dhammeeyay Qur’aanka waxay heli doonaan abaalmarinno gaar ah iyo shahaadooyin sharaf ah.",
-      img: "https://scontent.fmgq1-2.fna.fbcdn.net/v/t39.30808-6/487732172_1246387293950767_5709418859755660650_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=jq3tyUr4VacQ7kNvwEpQZ2X&_nc_oc=Adl1kSDw7x3e9muog6na8edcspFzdgYZzX6elucIvWSkEz4C3awO7nwVfBismqbs9cc&_nc_zt=23&_nc_ht=scontent.fmgq1-2.fna&_nc_gid=NhGQ7knwk2dNk1eAYyFrlA&oh=00_AfdFehKGB7ru9ZN1bEHpVtZ3NgvQNHX-rrSjSx_w8gwduw&oe=68F98BDF",
+      img: "https://scontent.fmgq1-2.fna.fbcdn.net/v/t39.30808-6/487732172_1246387293950767_5709418859755660650_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_ohc=pcwXlEjh3L8Q7kNvwFBzAX9&_nc_oc=Adn1DbGpR2K3TYiNEz7uxEoBDIuP6R81zsgNP5Pwq1-dIW1hpPU-f9M8QsHkcOAsO38&_nc_zt=23&_nc_ht=scontent.fmgq1-2.fna&_nc_gid=nQiJ5rw4A2jEwKo8VjuNKw&oh=00_AfcOo422hrNvDBzBd86eQT4H_7BmoPv66KjYsLJhWt_XDQ&oe=6902C65F",
     },
     {
       title: "Maamulka & Macallimiinta Cusub",
       date: "5 Dec 2025",
       desc: "Dugsigu wuxuu soo kordhiyay macallimiin cusub si loo horumariyo tayada waxbarashada.",
       full: "Macallimiinta cusub waxay leeyihiin khibrad sare oo waxbarid iyo tababar ah. Waxaa sidoo kale la sameeyay qorshe cusub oo lagu kobcinayo ardayda dhinaca akhlaaqda, diinta, iyo xirfadaha casriga ah.",
-      img: "https://scontent.fmgq1-2.fna.fbcdn.net/v/t39.30808-6/532158091_1366346295288199_2520923764946813410_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=qP4237l0WX0Q7kNvwEqtFTu&_nc_oc=Adm5HyUUaOopdy8E1KuMoiXrm22AH6SIT2z4GwTTX1atvlxZ6xLlajxi90gZ6ocjehs&_nc_zt=23&_nc_ht=scontent.fmgq1-2.fna&_nc_gid=-uUt_TinLcUyHAwK4gVV6w&oh=00_AfeC1XFIWHpS4JpqAZz1fSjwB2OzaK4XTvgpUABPgeDTiw&oe=68F9829E",
+      img: "https://scontent.fmgq1-2.fna.fbcdn.net/v/t39.30808-6/532158091_1366346295288199_2520923764946813410_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=IiuO17cr38YQ7kNvwGWZk-y&_nc_oc=Adl3PdPapqvADNdHUaG5gl11o4Pwo3D5C9u4RYpjRsW6EYIGxLd7JxjYFUrEWwnh9s4&_nc_zt=23&_nc_ht=scontent.fmgq1-2.fna&_nc_gid=YFNOlbdfG0fRhDn2QIt_Mg&oh=00_Aff6r0Rbq0x2mb7Jp86hTjZ5vsjK2NEgh3iT4xN5SV8i3A&oe=6902BD1E",
     },
   ];
 
